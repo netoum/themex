@@ -19,7 +19,7 @@ An Eleventy-based project with theme, mode, density, and theme/mode combination 
 1. Clone the repository:
    ```sh
    git clone https://github.com/netoum/themex.git
-   cd themex/examples/themex-css
+   cd themex/tree/master/examples/themex-css
    ```
 2. Install dependencies:
    ```sh

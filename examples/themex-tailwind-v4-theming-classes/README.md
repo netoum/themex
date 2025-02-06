@@ -18,7 +18,7 @@ An Vite-based project with Tailwind V4, using Themex as a npm package.
 1. Clone the repository:
    ```sh
    git clone https://github.com/netoum/themex.git
-   cd themex/examples/themex-tailwind-v4-theming-classes
+   cd themex/tree/master/examples/themex-tailwind-v4-theming-classes
    ```
 2. Install dependencies:
    ```sh
