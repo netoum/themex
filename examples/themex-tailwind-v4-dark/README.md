@@ -16,7 +16,7 @@ An Vite-based project with Tailwind dark mode support, using Themex as a npm pac
 1. Clone the repository:
    ```sh
    git clone https://github.com/netoum/themex.git
-   cd themex/tree/master/examples/themex-tailwind-v4-dark
+   cd themex/examples/themex-tailwind-v4-dark
    ```
 2. Install dependencies:
    ```sh
