@@ -161,6 +161,7 @@ describe('Themex', () => {
     it('should update mode via radio button', () => {
       new Themex(mockOptions);
       expect(localStorage.getItem('mode')).toBe('light');
+      expect(document.documentElement.getAttribute('data-mode')).toBe('light');
       const radio = document.querySelector('input[type="radio"][data-themex-key="mode"][data-themex-value]') as HTMLInputElement;
       radio.checked = true;
       radio.dispatchEvent(new Event('change'));
@@ -169,6 +170,8 @@ describe('Themex', () => {
     });
     it('should toggle mode via checkbox', () => {
       new Themex(mockOptions);
+      expect(localStorage.getItem('mode')).toBe('light');
+      expect(document.documentElement.getAttribute('data-mode')).toBe('light');
       const modeToggle = document.querySelector('input[type="checkbox"][data-themex-key="mode"][data-themex-value]') as HTMLInputElement;
       modeToggle.checked = true;
       modeToggle.dispatchEvent(new Event('change'));
@@ -181,6 +184,8 @@ describe('Themex', () => {
     });
     it('should update mode via select', () => {
       new Themex(mockOptions);
+      expect(localStorage.getItem('mode')).toBe('light');
+      expect(document.documentElement.getAttribute('data-mode')).toBe('light');
       const modeSelect = document.querySelector('select[data-themex-key="mode"]') as HTMLSelectElement;
       modeSelect.value = 'dark';
       modeSelect.dispatchEvent(new Event('change'));
@@ -191,6 +196,8 @@ describe('Themex', () => {
   describe('density selection', () => {
     it('should update density via select', () => {
       new Themex(mockOptions);
+      expect(localStorage.getItem('density')).toBe('compact');
+      expect(document.documentElement.getAttribute('data-density')).toBe('compact');
       const densitySelect = document.querySelector('select[data-themex-key="density"]') as HTMLSelectElement;
       densitySelect.value = 'wide';
       densitySelect.dispatchEvent(new Event('change'));
@@ -201,6 +208,8 @@ describe('Themex', () => {
   describe('size selection', () => {
     it('should update size via range', () => {
       new Themex(mockOptions);
+      expect(localStorage.getItem('size')).toBe('2');
+      expect(document.documentElement.getAttribute('data-size')).toBe('2');
       const sizeSelect = document.querySelector('input[type="range"][data-themex-key="size"]') as HTMLSelectElement;
       sizeSelect.value = '1';
       sizeSelect.dispatchEvent(new Event('change'));
@@ -214,18 +223,23 @@ describe('Themex', () => {
       const themeSelect = document.querySelector('select[data-themex-key="theme"]') as HTMLSelectElement;
       const modeToggle = document.querySelector('input[data-themex-key="mode"]') as HTMLInputElement;
       const densitySelect = document.querySelector('select[data-themex-key="density"]') as HTMLSelectElement;
+      const sizeRange = document.querySelector('input[type="range"][data-themex-key="size"]') as HTMLInputElement;
       themeSelect.value = 'gray';
       themeSelect.dispatchEvent(new Event('change'));
       modeToggle.checked = true;
       modeToggle.dispatchEvent(new Event('change'));
       densitySelect.value = 'wide';
       densitySelect.dispatchEvent(new Event('change'));
+      sizeRange.value = '1';
+      sizeRange.dispatchEvent(new Event('change'));
       expect(localStorage.getItem('theme')).toBe('gray');
       expect(localStorage.getItem('mode')).toBe('dark');
       expect(localStorage.getItem('density')).toBe('wide');
+      expect(localStorage.getItem('size')).toBe('1');
       expect(document.documentElement.getAttribute('data-theme')).toBe('gray');
       expect(document.documentElement.getAttribute('data-mode')).toBe('dark');
       expect(document.documentElement.getAttribute('data-density')).toBe('wide');
+      expect(document.documentElement.getAttribute('data-size')).toBe('1');
     });
   });
 });
