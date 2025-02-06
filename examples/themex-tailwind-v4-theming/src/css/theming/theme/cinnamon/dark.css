@@ -1,0 +1,18 @@
+[data-theme="cinnamon"][data-mode="dark"] {
+  --theme-color-body: var(--color-cinnamon-6);
+  --theme-color-body-contrast: var(--color-cinnamon-2);
+
+  --theme-color-layer: var(--color-cinnamon-5);
+  --theme-color-layer-contrast: var(--color-cinnamon-1);
+
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="cinnamon"][data-mode="system"] {
+    --theme-color-body: var(--color-cinnamon-6);
+    --theme-color-body-contrast: var(--color-cinnamon-2);
+  
+    --theme-color-layer: var(--color-cinnamon-5);
+    --theme-color-layer-contrast: var(--color-cinnamon-1);
+  }
+}

@@ -1,0 +1,20 @@
+[data-theme="red"][data-mode="dark"] {
+  --theme-color-body: var(--color-red-6);
+  --theme-color-body-contrast: var(--color-red-2);
+
+  --theme-color-layer: var(--color-red-5);
+  --theme-color-layer-contrast: var(--color-red-1);
+
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="red"][data-mode="system"] {
+    --theme-color-body: var(--color-red-6);
+    --theme-color-body-contrast: var(--color-red-2);
+  
+    --theme-color-layer: var(--color-red-5);
+    --theme-color-layer-contrast: var(--color-red-1);
+
+
+  }
+}

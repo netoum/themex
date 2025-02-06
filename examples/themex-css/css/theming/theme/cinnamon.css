@@ -1,0 +1,10 @@
+
+[data-theme="cinnamon"] {
+
+    --theme-color-primary: var(--color-cinnamon-2);
+    --theme-color-primary-contrast: var(--color-cinnamon-6);
+  
+    --theme-color-primary-tint: var(--color-cinnamon-1);
+    --theme-color-primary-tint-contrast: var(--color-cinnamon-5);
+  }
+  

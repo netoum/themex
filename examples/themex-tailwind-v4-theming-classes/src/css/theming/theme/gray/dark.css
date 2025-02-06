@@ -1,0 +1,18 @@
+[data-theme="gray"][data-mode="dark"] {
+  --theme-color-body: var(--color-gray-6);
+  --theme-color-body-contrast: var(--color-gray-2);
+
+  --theme-color-layer: var(--color-gray-5);
+  --theme-color-layer-contrast: var(--color-gray-1);
+
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="gray"][data-mode="system"] {
+    --theme-color-body: var(--color-gray-6);
+    --theme-color-body-contrast: var(--color-gray-2);
+  
+    --theme-color-layer: var(--color-gray-5);
+    --theme-color-layer-contrast: var(--color-gray-1);
+  }
+}

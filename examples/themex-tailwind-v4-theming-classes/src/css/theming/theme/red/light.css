@@ -1,0 +1,18 @@
+
+[data-theme="red"][data-mode="light"] {
+  --theme-color-body: var(--color-red-1);
+  --theme-color-body-contrast: var(--color-red-5);
+
+  --theme-color-layer: var(--color-red-2);
+  --theme-color-layer-contrast: var(--color-red-6);
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="red"][data-mode="system"] {
+    --theme-color-body: var(--color-red-1);
+    --theme-color-body-contrast: var(--color-red-5);
+
+    --theme-color-layer: var(--color-red-2);
+    --theme-color-layer-contrast: var(--color-red-6);
+  }
+}

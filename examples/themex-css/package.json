@@ -1,0 +1,11 @@
+{
+  "name": "themex-css",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

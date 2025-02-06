@@ -1,0 +1,10 @@
+
+[data-theme="red"] {
+
+    --theme-color-primary: var(--color-red-2);
+    --theme-color-primary-contrast: var(--color-red-6);
+  
+    --theme-color-primary-tint: var(--color-red-1);
+    --theme-color-primary-tint-contrast: var(--color-red-5);
+  }
+  

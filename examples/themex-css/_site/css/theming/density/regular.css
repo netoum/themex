@@ -1,0 +1,16 @@
+[data-density="regular"] {
+    --density-spacing: 0.25rem;
+    --density-container-3xs: 16rem;
+    --density-container-2xs: 18rem;
+    --density-container-xs: 20rem;
+    --density-container-sm: 24rem;
+    --density-container-md: 28rem;
+    --density-container-lg: 32rem;
+    --density-container-xl: 36rem;
+    --density-container-2xl: 42rem;
+    --density-container-3xl: 48rem;
+    --density-container-4xl: 56rem;
+    --density-container-5xl: 64rem;
+    --density-container-6xl: 72rem;
+    --density-container-7xl: 80rem;
+}

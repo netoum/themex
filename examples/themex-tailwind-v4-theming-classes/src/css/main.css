@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@import "./tailwind/theme.css";
+@import "./reasonable/colors.css";
+@import "./themex/base.css";
+@import "./themex/brand.css";
+@import "./theming/theme/gray.css";
+@import "./theming/theme/red.css";
+@import "./theming/theme/cinnamon.css";
+@import "./theming/theme/gray/light.css";
+@import "./theming/theme/gray/dark.css";
+@import "./theming/theme/red/light.css";
+@import "./theming/theme/red/dark.css";
+@import "./theming/theme/cinnamon/light.css";
+@import "./theming/theme/cinnamon/dark.css";
+@import "./theming/mode/light.css";
+@import "./theming/mode/dark.css";
+@import "./theming/density/regular.css";
+@import "./theming/density/wide.css";
+@import "./theming/size/1.css";
+@import "./theming/size/2.css";
+@import "./theming/size/3.css";
+
+
+@custom-variant dark {
+  &:where([data-mode=system], [data-mode=system] *) {
+    @media (prefers-color-scheme: dark) {
+      @slot;
+    }
+  }
+
+  &:where([data-mode=dark], [data-mode=dark] *) {
+    @slot;
+  }
+}
+
+body {
+  @apply flex flex-col min-h-screen bg-body text-body-contrast;
+}
+
+header {
+  @apply bg-header/80 text-header-contrast backdrop-blur-sm fixed w-full z-50;
+}
+
+.header-container {
+  @apply flex items-center container justify-between gap-2 sm:gap-4 p-2 sm:p-4 max-w-screen-xl mx-auto;
+}
+
+.logo-link {
+  @apply flex-shrink-0;
+}
+
+.logo-img-light {
+  @apply w-16 sm:w-16 h-auto dark:hidden;
+}
+
+.logo-img-dark {
+  @apply w-16 sm:w-16 h-auto hidden dark:inline-block;
+}
+
+nav {
+  @apply flex items-center justify-end gap-1.5 sm:gap-2.5;
+}
+
+select {
+  @apply h-8 sm:h-9 px-1 sm:px-2 bg-primary-tint text-primary-tint-contrast text-xs sm:text-sm rounded-xl max-w-[80px] sm:max-w-none appearance-none;
+}
+
+.button-icon-set {
+  @apply flex bg-primary-tint/40 rounded-lg;
+}
+
+.button-set-icon-start {
+  @apply p-1.5 sm:p-2 rounded-s-md hover:bg-primary hover:text-primary-contrast aria-current:bg-primary-tint aria-current:text-primary-tint-contrast;
+}
+
+.button-set-icon-middle {
+  @apply p-1.5 sm:p-2 hover:bg-primary hover:text-primary-contrast aria-current:bg-primary-tint aria-current:text-primary-tint-contrast;
+}
+
+.button-set-icon-end {
+  @apply p-1.5 sm:p-2 rounded-e-md hover:bg-primary hover:text-primary-contrast aria-current:bg-primary-tint aria-current:text-primary-tint-contrast;
+}
+
+.icon-svg {
+  @apply w-6 h-6 sm:w-5 sm:h-5;
+}
+
+
+main {
+  @apply w-full min-h-screen px-4 mt-16 py-8 space-y-12 max-w-7xl mx-auto;
+}
+
+.hero {
+  @apply max-w-lg flex flex-wrap mx-auto items-center justify-center gap-6 p-4;
+}
+
+.hero-logo-link {
+  @apply relative transition-transform duration-300 hover:scale-110;
+}
+
+.hero-logo-themex-light {
+  @apply w-20 sm:w-24 object-cover p-2 sm:p-4 rounded-2xl dark:hidden;
+}
+
+.hero-logo-themex-dark {
+  @apply w-20 sm:w-24 object-cover p-2 sm:p-4 rounded-2xl hidden dark:block;
+}
+
+.hero-logo-tailwind-light {
+  @apply w-32 sm:w-36 object-cover rounded-2xl dark:hidden;
+}
+
+.hero-logo-tailwind-dark {
+  @apply w-32 sm:w-36 object-cover rounded-2xl hidden dark:block;
+}
+
+.tailwind-version {
+  @apply absolute top-0 -right-6 p-6 inline-flex items-center rounded-md bg-gray-800 text-gray-200 dark:bg-gray-50 dark:text-gray-600 px-2 py-1 text-xs font-medium ring-1 ring-gray-500/10 ring-inset transform translate-x-2 -translate-y-2 shadow-md;
+}
+
+h1 {
+  @apply text-3xl text-center font-bold mb-8;
+}
+
+h2 {
+  @apply text-2xl text-center font-semibold mb-8;
+}
+
+h3 {
+  @apply text-base font-semibold mb-4;
+}
+
+section {
+  @apply container mx-auto shadow-2xl rounded-lg p-8 bg-section text-section-contrast items-center max-w-4xl;
+}
+
+.section-container {
+  @apply flex flex-wrap gap-8 mx-auto justify-center items-start p-4;
+}
+
+.section-wrapper {
+  @apply w-full sm:w-auto;
+}
+
+.button-set-container {
+  @apply flex flex-wrap items-center gap-3;
+}
+
+.button-set {
+  @apply aria-current:cursor-default aria-current:bg-primary-contrast aria-current:text-primary inline-flex items-center justify-center px-4 py-2 bg-white text-black border border-gray-200 rounded-md hover:bg-gray-50 focus:outline-none focus:shadow-none;
+}
+
+.radio-group {
+  @apply flex flex-wrap gap-4 sm:items-center;
+}
+
+.radio-container {
+  @apply flex items-center;
+}
+
+.radio-wrapper {
+  @apply rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative;
+}
+
+.radio-input {
+  @apply appearance-none checked:bg-section-contrast focus:opacity-100 focus:ring-2 focus:ring-offset-2 focus:ring-section-contrast focus:outline-none border rounded-full border-section-contrast absolute cursor-pointer w-full h-full checked:border-none;
+}
+
+.radio-label {
+  @apply ml-2 text-sm leading-4 font-normal;
+}
+
+.range-container {
+  @apply max-w-md mx-auto space-y-2 px-4;
+}
+
+
+.range-label {
+  @apply text-base font-semibold justify-between flex w-full;
+}
+
+.range-input {
+  @apply w-full;
+}
+
+.button-toggle-wrapper {
+  @apply flex flex-wrap gap-3;
+}
+
+.button-toggle {
+  @apply aria-pressed:cursor-default aria-pressed:hidden inline-flex items-center justify-center px-4 py-2 bg-white text-black border border-gray-200 rounded-md hover:bg-gray-50 focus:outline-none focus:shadow-none;
+}
+
+.switch-container {
+  @apply flex items-center gap-4;
+}
+
+.switch-label {
+  @apply text-sm font-medium;
+}
+
+.switch-wrapper {
+  @apply relative inline-flex items-center cursor-pointer;
+}
+
+.switch-input {
+  @apply absolute left-1/2 -translate-x-1/2 w-full h-full appearance-none rounded-md;
+}
+
+.switch-after {
+  @apply w-12 h-6 flex items-center flex-shrink-0 bg-blue-300 rounded-full duration-300 ease-in-out peer-checked:bg-blue-600 after:w-6 after:h-6 after:bg-white peer-checked:after:bg-white after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-6 group-hover:after:translate-x-1
+}
+
+
+.button {
+  @apply inline-flex items-center justify-center px-4 py-2 bg-white text-black border border-gray-200 rounded-md hover:bg-gray-50 focus:outline-none focus:shadow-none;
+}
+
+footer {
+  @apply flex z-10 bg-footer text-footer-contrast;
+}
+
+.footer-container {
+  @apply max-w-4xl mx-auto p-2 text-center text-sm flex flex-wrap items-center justify-center gap-2;
+}
+
+.footer-icon {
+  @apply h-7;
+}
+
+a {
+  @apply hover:underline;
+}

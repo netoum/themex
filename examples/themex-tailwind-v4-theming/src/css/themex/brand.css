@@ -1,0 +1,7 @@
+@theme inline {
+    --color-primary: var(--theme-color-primary);
+    --color-primary-contrast: var(--theme-color-primary-contrast);
+
+    --color-primary-tint: var(--theme-color-primary-tint);
+    --color-primary-tint-contrast: var(--theme-color-primary-tint-contrast);
+}

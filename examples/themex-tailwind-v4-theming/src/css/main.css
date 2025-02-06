@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@import "./tailwind/theme.css";
+@import "./reasonable/colors.css";
+@import "./themex/base.css";
+@import "./themex/brand.css";
+@import "./theming/theme/gray.css";
+@import "./theming/theme/red.css";
+@import "./theming/theme/cinnamon.css";
+@import "./theming/theme/gray/light.css";
+@import "./theming/theme/gray/dark.css";
+@import "./theming/theme/red/light.css";
+@import "./theming/theme/red/dark.css";
+@import "./theming/theme/cinnamon/light.css";
+@import "./theming/theme/cinnamon/dark.css";
+@import "./theming/mode/light.css";
+@import "./theming/mode/dark.css";
+@import "./theming/density/regular.css";
+@import "./theming/density/wide.css";
+@import "./theming/size/1.css";
+@import "./theming/size/2.css";
+@import "./theming/size/3.css";
+
+
+@custom-variant dark {
+  &:where([data-mode=system], [data-mode=system] *) {
+    @media (prefers-color-scheme: dark) {
+      @slot;
+    }
+  }
+  &:where([data-mode=dark], [data-mode=dark] *) {
+    @slot;
+  }
+}
+

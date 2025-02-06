@@ -1,0 +1,10 @@
+
+[data-theme="gray"] {
+
+    --theme-color-primary: var(--color-gray-2);
+    --theme-color-primary-contrast: var(--color-gray-6);
+  
+    --theme-color-primary-tint: var(--color-gray-1);
+    --theme-color-primary-tint-contrast: var(--color-gray-5);
+  }
+  

@@ -1,0 +1,14 @@
+
+:root, :host   {
+    --color-body: var(--theme-color-body);
+    --color-body-contrast: var(--theme-color-body-contrast);
+
+    --color-header: var(--theme-color-layer);
+    --color-header-contrast: var(--theme-color-layer-contrast);
+
+    --color-footer: var(--theme-color-layer);
+    --color-footer-contrast: var(--theme-color-layer-contrast);
+
+    --color-section: var(--theme-color-layer);
+    --color-section-contrast: var(--theme-color-layer-contrast);
+}

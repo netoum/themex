@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "NodeNext",
+    "outDir": "dist",
+    "strict": true,
+    "target": "es2022",
+    "moduleResolution": "nodenext",
+    "allowImportingTsExtensions": true,
+    "noEmit": true
+  },
+  "include": [
+    "src",
+    "test"
+    ],
+  "exclude": [
+    "dist",
+    "examples"
+  ]
+}
