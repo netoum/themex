@@ -1,6 +1,6 @@
 {
   "name": "@netoum/themex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A flexible and unstyled theming system that supports multiple theme attributes with persistent storage and automatic UI synchronization.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
