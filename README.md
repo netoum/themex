@@ -27,7 +27,7 @@ npm install @netoum/themex
 ## Quick Start
 
 ```typescript
-import { Themex } from 'themex';
+import { Themex } from '@netoum/themex';
 
 const options = [
   {
