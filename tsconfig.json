@@ -10,8 +10,7 @@
     "allowImportingTsExtensions": true
     },
   "include": [
-    "src",
-    "test"
+    "src"
     ],
   "exclude": [
     "dist",
