@@ -6,7 +6,7 @@
 
 # Themex (@netoum/themex)
 
-Flexible, accessible and unstyled theming system that supports multiple theme attributes with persistent storage and automatic UI synchronization.
+Flexible and unstyled theming system that supports multiple theme attributes with persistent storage and automatic UI synchronization.
 
 ## Features
 
