@@ -24,7 +24,7 @@ Flexible, accessible and unstyled theming system that supports multiple theme at
 npm install @netoum/themex
 ```
 
-## Quick Start
+## Setup
 
 ```typescript
 import { Themex } from '@netoum/themex';
@@ -54,6 +54,8 @@ const options = [
 
 new Themex(options);
 ```
+
+The default value for each key is optional.
 
 
 ### Data Attributes
@@ -153,16 +155,16 @@ option[data-selected="true"] {
 ```
 
 
-### Switches/Checkbox Toggle
-You must select 2 values, the first one being the value selectd when the checkob is checked, the second beign the fallback when the checkbox is unchecked
+### Checkbox
+When unchecked, it will switch to the default value if it exists for the key, else it only remove the attribute
 
 ```html
 <label>
-  Wide
+  Dark
 </label>
   <input type="checkbox" 
-         data-themex-key="density" 
-         data-themex-value="wide,compact">
+         data-themex-key="mode" 
+         data-themex-value="dark">
 ```
 
 ### Radio

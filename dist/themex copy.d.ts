@@ -7,9 +7,12 @@ interface ThemexOptions {
 }
 declare class Themex {
     private options;
+    private observer;
     constructor(options: ThemexOptions[]);
+    private startObserver;
     private getDefaultValue;
     private initializeThemex;
+    private attachCheckboxListeners;
     private setupEventListeners;
     private applyThemex;
     private removeThemex;

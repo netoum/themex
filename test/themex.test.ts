@@ -41,7 +41,7 @@ describe('Themex', () => {
         <option value="light">Light</option>
         <option value="dark">Dark</option>
       </select>
-      <input type="checkbox" data-themex-key="mode" data-themex-value="dark,light"/>
+      <input type="checkbox" data-themex-key="mode" data-themex-value="dark"/>
       <select data-themex-key="density">
         <option value="compact">Compact</option>
         <option value="wide">Wide</option>

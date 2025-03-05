@@ -11,7 +11,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.0.0",
     "tailwindcss": "^4.0.0",
-    "@netoum/themex": "^1.0.0"
+    "@netoum/themex": "file:../../"
   },
   "devDependencies": {
     "typescript": "^5.3.3",

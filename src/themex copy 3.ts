@@ -23,7 +23,7 @@ class Themex {
     const option = this.options.find(opt => opt.key === key);
     return option?.default;
   }
-  public initializeThemex(): void {
+  private initializeThemex(): void {
     this.options.forEach(({ key, default: defaultValue }) => {
       const savedValue = localStorage.getItem(key);
       const value = savedValue || defaultValue;
@@ -78,16 +78,6 @@ class Themex {
         }
       });
     });
-    });
-    
-    document.querySelectorAll<HTMLSelectElement>('select[data-themex-key]').forEach(select => {
-      select.addEventListener('change', (e) => {
-        const target = e.target as HTMLSelectElement;
-        const key = target.dataset.themexKey as string;
-        const value = target.value as ThemexValue;
-        this.applyThemex(key, value);
-        this.updateUI(key, value);
-      });
     });
     // Handle buttons
     document.querySelectorAll<HTMLButtonElement>('button[data-themex-key]').forEach(button => {

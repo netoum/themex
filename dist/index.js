@@ -39,33 +39,65 @@ var Themex = class {
       this.setupEventListeners();
     }
   }
+  getDefaultValue(key) {
+    const option = this.options.find((opt) => opt.key === key);
+    return option?.default;
+  }
   initializeThemex() {
     this.options.forEach(({ key, default: defaultValue }) => {
       const savedValue = localStorage.getItem(key);
+      console.log(savedValue);
       const value = savedValue || defaultValue;
-      this.applyThemex(key, value);
-      this.updateUI(key, value);
+      if (value) {
+        this.applyThemex(key, value);
+        this.updateUI(key, value);
+      }
     });
   }
   setupEventListeners() {
-    document.querySelectorAll("button[data-themex-key]").forEach((button) => {
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-        const target = e.currentTarget;
+    document.querySelectorAll('input[type="checkbox"][data-themex-key][data-themex-value]').forEach((input) => {
+      input.addEventListener("change", (e) => {
+        const target = e.target;
         const key = target.dataset.themexKey;
         const value = target.dataset.themexValue;
-        this.applyThemex(key, value);
-        this.updateUI(key, value);
+        if (key && value) {
+          if (target.checked) {
+            this.applyThemex(key, value);
+            this.updateUI(key, value);
+          } else {
+            const defaultValue = this.getDefaultValue(key);
+            if (defaultValue) {
+              this.applyThemex(key, defaultValue);
+              this.updateUI(key, defaultValue);
+            } else {
+              this.removeThemex(key);
+              this.updateUI(key, "");
+            }
+          }
+        }
       });
     });
-    document.querySelectorAll('div[role="button"][data-themex-key]').forEach((button) => {
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-        const target = e.currentTarget;
-        const key = target.dataset.themexKey;
-        const value = target.dataset.themexValue;
-        this.applyThemex(key, value);
-        this.updateUI(key, value);
+    document.querySelectorAll("label[data-themex-key]").forEach((label) => {
+      label.addEventListener("change", (e) => {
+        const key = label.dataset.themexKey;
+        const value = label.dataset.themexValue;
+        label.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+          if (key && value) {
+            if (input.checked) {
+              this.applyThemex(key, value);
+              this.updateUI(key, value);
+            } else {
+              const defaultValue = this.getDefaultValue(key);
+              if (defaultValue) {
+                this.applyThemex(key, defaultValue);
+                this.updateUI(key, defaultValue);
+              } else {
+                this.removeThemex(key);
+                this.updateUI(key, "");
+              }
+            }
+          }
+        });
       });
     });
     document.querySelectorAll("select[data-themex-key]").forEach((select) => {
@@ -77,24 +109,37 @@ var Themex = class {
         this.updateUI(key, value);
       });
     });
-    document.querySelectorAll("a[data-themex-key]").forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
+    document.querySelectorAll("button[data-themex-key]").forEach((button) => {
+      button.addEventListener("click", (e) => {
         const target = e.currentTarget;
         const key = target.dataset.themexKey;
         const value = target.dataset.themexValue;
-        this.applyThemex(key, value);
-        this.updateUI(key, value);
+        if (value) {
+          this.applyThemex(key, value);
+          this.updateUI(key, value);
+        }
       });
     });
-    document.querySelectorAll('input[type="checkbox"][data-themex-key]').forEach((toggle) => {
-      toggle.addEventListener("change", (e) => {
-        const target = e.target;
+    document.querySelectorAll('div[role="button"][data-themex-key]').forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const target = e.currentTarget;
         const key = target.dataset.themexKey;
-        const [onValue, offValue] = (target.dataset.themexValue || "").split(",");
-        const value = target.checked ? onValue : offValue;
-        this.applyThemex(key, value);
-        this.updateUI(key, value);
+        const value = target.dataset.themexValue;
+        if (value) {
+          this.applyThemex(key, value);
+          this.updateUI(key, value);
+        }
+      });
+    });
+    document.querySelectorAll("a[data-themex-key]").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const target = e.currentTarget;
+        const key = target.dataset.themexKey;
+        const value = target.dataset.themexValue;
+        if (key && value) {
+          this.applyThemex(key, value);
+          this.updateUI(key, value);
+        }
       });
     });
     document.querySelectorAll('input[type="radio"][data-themex-key]').forEach((radio) => {
@@ -102,7 +147,7 @@ var Themex = class {
         const target = e.target;
         const key = target.dataset.themexKey;
         const value = target.dataset.themexValue;
-        if (target.checked) {
+        if (target.checked && key && value) {
           this.applyThemex(key, value);
           this.updateUI(key, value);
         }
@@ -112,9 +157,11 @@ var Themex = class {
       range.addEventListener("change", (e) => {
         const target = e.target;
         const key = target.dataset.themexKey;
-        const value = target.value;
-        this.applyThemex(key, value);
-        this.updateUI(key, value);
+        if (key) {
+          const value = target.value;
+          this.applyThemex(key, value);
+          this.updateUI(key, value);
+        }
       });
     });
   }
@@ -122,7 +169,25 @@ var Themex = class {
     localStorage.setItem(key, value);
     document.documentElement.setAttribute(`data-${key}`, value);
   }
+  removeThemex(key) {
+    localStorage.removeItem(key);
+    document.documentElement.removeAttribute(`data-${key}`);
+  }
   updateUI(key, value) {
+    document.querySelectorAll(`input[type="checkbox"][data-themex-key="${key}"]`).forEach((input) => {
+      const inputValue = input.dataset.themexValue;
+      if (inputValue) {
+        input.checked = value === inputValue;
+      }
+    });
+    document.querySelectorAll(`label[data-themex-key="${key}"]`).forEach((label) => {
+      const labelValue = label.dataset.themexValue;
+      label.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        if (labelValue) {
+          input.checked = value === labelValue;
+        }
+      });
+    });
     document.querySelectorAll(`button[data-themex-key="${key}"][set]`).forEach((button) => {
       const buttonValue = button.dataset.themexValue;
       const isSelected = buttonValue === value;
@@ -153,13 +218,11 @@ var Themex = class {
         selectedOption.setAttribute("data-selected", "true");
       }
     });
-    document.querySelectorAll(`input[type="checkbox"][data-themex-key="${key}"]`).forEach((toggle) => {
-      const [onValue] = (toggle.dataset.themexValue || "").split(",");
-      toggle.checked = value === onValue;
-    });
     document.querySelectorAll(`input[type="radio"][data-themex-key="${key}"]`).forEach((radio) => {
       const radioValue = radio.dataset.themexValue;
-      radio.checked = radioValue === value;
+      if (radioValue) {
+        radio.checked = radioValue === value;
+      }
     });
     document.querySelectorAll(`input[type="range"][data-themex-key="${key}"]`).forEach((range) => {
       range.value = value;
